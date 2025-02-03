@@ -1,0 +1,197 @@
+1. Definition and Representation of Arrays in Java
+Definition:
+An array is a collection of elements of the same data type stored in contiguous memory locations.
+
+Core Concept:
+Arrays in Java are objects.
+The length of an array is fixed after declaration.
+Arrays are zero-indexed, meaning indexing starts from 0.
+/////////////////////////////////////////////
+Syntax for Declaring an Array
+dataType[] arrayName;  // Preferred syntax
+dataType arrayName[];  // Also valid
+
+
+Syntax for Initializing an Array
+dataType[] arrayName = new dataType[size];
+public class ArrayBasics {
+    public static void main(String[] args) {
+        int[] numbers = new int[5];  // Array of size 5
+        numbers[0] = 10;  // Assigning values
+        numbers[1] = 20;
+        
+        System.out.println("First Element: " + numbers[0]);  // Output: 10
+        System.out.println("Second Element: " + numbers[1]); // Output: 20
+    }
+}
+
+2. Types of Arrays
+a) One-Dimensional Arrays (1D Arrays)
+These are the simplest form of arrays, where elements are stored in a single row.
+
+Declaration & Initialization
+int[] arr = {1, 2, 3, 4, 5};  // Direct initialization
+Accessing Elements
+
+System.out.println(arr[2]);  // Output: 3
+////////////////
+Example - Traversing a 1D Array
+
+public class OneDArray {
+    public static void main(String[] args) {
+        int[] numbers = {10, 20, 30, 40, 50};
+        
+        System.out.println("Array elements:");
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.println(numbers[i]);
+        }
+    }
+}
+///////////////////
+b) Multi-Dimensional Arrays
+A multi-dimensional array is an array of arrays. The most commonly used is a 2D array, which is useful for representing tables or matrices.
+
+Declaration & Initialization
+
+int[][] matrix = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+};
+/////////////////
+Accessing Elements
+System.out.println(matrix[1][2]);  // Output: 6
+Example - Traversing a 2D Array
+public class MultiDArray {
+    public static void main(String[] args) {
+        int[][] matrix = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+
+        System.out.println("2D Array elements:");
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+///////////////////////////
+3. Static vs Dynamic Arrays
+Static Arrays
+Fixed size, determined at the time of declaration.
+Example:
+int[] arr = new int[5];  // Static array of size 5
+Cannot grow beyond the specified size.
+
+
+Dynamic Arrays
+Can resize dynamically.
+Implemented using ArrayList in Java.
+Example:
+import java.util.ArrayList;
+
+public class DynamicArray {
+    public static void main(String[] args) {
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(10);  // Add elements dynamically
+        list.add(20);
+        list.add(30);
+
+        System.out.println(list);  // Output: [10, 20, 30]
+    }
+}
+//////////////////////
+4. Array Traversal and Basic Operations
+a) Traversing an Array
+Traversing means accessing each element in an array.
+
+Using For Loop
+int[] arr = {10, 20, 30, 40, 50};
+
+for (int i = 0; i < arr.length; i++) {
+    System.out.println(arr[i]);
+}
+
+
+
+Using Enhanced For Loop (For-Each):
+for (int num : arr) {
+    System.out.println(num);
+}
+
+
+b) Basic Array Operations
+1. Finding the Maximum and Minimum Element
+public class ArrayMinMax {
+    public static void main(String[] args) {
+        int[] arr = {5, 3, 9, 1, 7};
+        int max = arr[0], min = arr[0];
+
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max) max = arr[i];
+            if (arr[i] < min) min = arr[i];
+        }
+
+        System.out.println("Max: " + max);  // Output: 9
+        System.out.println("Min: " + min);  // Output: 1
+    }
+}
+
+
+2. Searching for an Element in an Array
+
+public class ArraySearch {
+    public static void main(String[] args) {
+        int[] arr = {10, 20, 30, 40, 50};
+        int target = 30;
+        boolean found = false;
+
+        for (int num : arr) {
+            if (num == target) {
+                found = true;
+                break;
+            }
+        }
+
+        System.out.println("Element found: " + found);  // Output: true
+    }
+}
+
+3. Sorting an Array
+Sorting can be done using the built-in Arrays.sort() method.
+import java.util.Arrays;
+
+public class ArraySorting {
+    public static void main(String[] args) {
+        int[] arr = {5, 2, 8, 1, 9};
+        Arrays.sort(arr);
+
+        System.out.println(Arrays.toString(arr));  // Output: [1, 2, 5, 8, 9]
+    }
+}
+
+
+
+4. Copying an Array
+int[] original = {10, 20, 30};
+int[] copy = Arrays.copyOf(original, original.length);
+System.out.println(Arrays.toString(copy));  // Output: [10, 20, 30]
+
+5. Tricks & Inbuilt Functions
+Arrays.toString(arr) → Converts array to String for easy printing.
+Arrays.sort(arr) → Sorts the array.
+Arrays.binarySearch(arr, key) → Searches for an element (array must be sorted).
+Arrays.fill(arr, value) → Fills an array with a given value.
+System.arraycopy(src, srcPos, dest, destPos, length) → Copies array elements.
+
+
+
+Conclusion
+Arrays are powerful but have a fixed size.
+For dynamic behavior, use ArrayList.
+Multi-dimensional arrays are useful for matrices.
+Java provides many built-in methods to work with arrays efficiently.
