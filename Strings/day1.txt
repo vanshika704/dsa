@@ -1,0 +1,93 @@
+basics of strings in java 
+A string is a sequence of charachters . 
+in java strings are objects and are the part of java.lang package .
+A string is a refference type but behaves similarly to primitive data type.
+A string is immutable . any change in it results to a new string object formed . 
+/////////////////////////////////////////////how it look like 
+public class StringBasics {
+    public static void main(String[] args) {
+        String str = "Hello World";  // Creating a String object
+        System.out.println(str);      // Printing the string
+    }
+}
+////////////////////////////////
+2 . string representtation 
+in java stringss are represented by String class . 
+the actual charachters are stored in an array of char intternally . 
+the array is called as char array .
+the actual charachters are stored in ab array internally.
+string litterals arw stored in special memory area called the string pool .
+When you create a String with new, it checks the pool first. If it doesn't exist, it adds it.
+//////////////////////////////
+public class StringRepresentation {
+    public static void main(String[] args) {
+        String str1 = "Hello";     // String literal, will be stored in the String pool
+        String str2 = new String("Hello");  // Using 'new' creates a new object outside the pool
+        
+        // Check if both strings are the same in terms of content
+        System.out.println(str1 == str2);  // false (different memory location)
+        System.out.println(str1.equals(str2));  // true (same content)
+    }
+}
+/////////////////////////////////////
+3 string manipulation 
+a length of a string 
+you can find the length of the string by using the .length()
+
+Core Concept : .length gives the number of charachter in the string .
+
+b string concatenation : 
+you can concatenate two strings by using the + operator .
+can be done by both + and concat method .
+
+c string comparision 
+you can compare strings using the equals () method or == . 
+equals() method compares the content of the strings while== compares the memory location of the strings .
+
+public class StringComparison {
+    public static void main(String[] args) {
+        String str1 = "Hello";
+        String str2 = "Hello";
+        String str3 = new String("Hello");
+        
+        System.out.println(str1.equals(str2));  // true
+        System.out.println(str1 == str2);       // true (same reference in string pool)
+        System.out.println(str1 == str3);       // false (different memory location)
+    }
+}
+/////////////////////////////////////////
+4. String Input and Output
+a. Input
+In Java, we can take input for strings using Scanner.
+
+Core Concept
+Scanner is the most common way to take input from the user.
+/////////////////////////////////////
+import java.util.Scanner;
+
+public class StringInput {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter your name: ");
+        String name = scanner.nextLine();
+        
+        System.out.println("Hello, " + name);
+    }
+}
+/////////////////////////////////////////
+5. Mutable vs Immutable Strings
+In Java, Strings are immutable. This means that once you create a String object, it cannot be changed. If you modify a string, a new string is created.
+
+Core Concept
+Strings in Java cannot be changed directly.
+If you need a mutable string, consider using StringBuilder or StringBuffer.
+
+public class MutableString {
+    public static void main(String[] args) {
+        StringBuilder sb = new StringBuilder("Hello");
+        sb.append(" World");  // Modifying the string using StringBuilder
+        System.out.println(sb);  // Output: Hello World
+    }
+}
+/////////////////////////////////
