@@ -3,7 +3,7 @@ package Strings;
 import java.util.Arrays;
 
 public class boyermoore {
-    private static final int ALPHABET_SIZE = 256;
+    private static final int ALPHABET_SIZE = 256; // size define kiya
 
     // Preprocesses the pattern and builds the bad character table
     private static int[] buildBadCharTable(String pattern) {
