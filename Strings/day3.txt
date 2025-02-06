@@ -1,0 +1,25 @@
+String searching algorithms are used to find a specific word or phrase within a text. The most common searching algorithms are:
+Naive Pattern Matching Algorithm : it is used to find a substring (patten ) within a larger string (text). it works by checking every possible position in the text where the pattern might start.
+
+1. Start at the beggining of the text. 
+2. compare the pattern with the text, charachter by charachter . 
+3. If a match is found , shift the pattern by one position to the right and repeat the commparision . 
+4. if all charachter of the pattern match , record the starting index .
+5. repeat until the end of the text is reached . 
+ 
+ ///////////////////////////////
+ Rabin -Karp Algorithm : it is used to find a substring (patten ) within a larger string (text).
+ Efficient String Searching using hashing.
+
+ Instead of comparing characters one by one, the Rabin-Karp algorithm:
+
+Computes a hash value for the pattern.
+Computes the hash value for each substring of the text (of the same length as the pattern).
+If a substring’s hash value matches the pattern’s hash, a direct character-by-character comparison is done to confirm the match.
+Uses rolling hash to efficiently compute hash values for consecutive substrings.
+ ///////////////////////
+ backtracking uesd , boyer moore .
+ Boyer-Moore works by shifting the pattern intelligently using two preprocessing techniques:
+
+Bad Character Rule: If a mismatch occurs, shift the pattern so that the mismatched character aligns with its last occurrence in the pattern.
+Good Suffix Rule: If a suffix of the pattern matches part of the text, shift the pattern so that the next occurrence of that suffix aligns.
