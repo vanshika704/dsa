@@ -42,7 +42,7 @@ public class boyermoore {
         }
     }
 
- //   // Main method to test the algorithm
+    // Main method to test the algorithm
     public static void main(String[] args) {
         String text = "ABABDABACDABABCABAB";
         String pattern = "ABABCABAB";
